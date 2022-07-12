@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router,Route, Routes } from 'react-router-dom';
+import AddBook from './components/AddBook';
+import BookList from './components/BookList';
+import { useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+const App=()=>{
+const [bookId,setBookId]=useState('');
+ const getBookIdHandler=(id)=>{
+   setBookId(id)
+ }
+  return(
+    <div>
+      <Router>
+        <Routes>
+          <Route exact path='/' element={<AddBook id={bookId} setBookId={setBookId}/>}/>
+        </Routes>
+      </Router>
+      <BookList getBookId={getBookIdHandler}/>      
+
     </div>
-  );
+  )
 }
 
 export default App;

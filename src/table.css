@@ -1,0 +1,10 @@
+*{
+    margin-top: 20px;
+}
+.gap{
+    position: relative;
+    padding: 10px 40px;
+    margin: 20px;
+    
+    border: 2px solid grey;
+}
